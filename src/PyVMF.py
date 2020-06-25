@@ -10,7 +10,6 @@ from .tools import num
 from .importer import *
 from typing import List, Tuple, Generator
 import warnings
-from .exceptions import *
 
 class Convert:
 	"""
