@@ -231,7 +231,10 @@ class VisGroup(Common):
 		dic, children = self._dic_and_children(dic, children)
 
 		self.name = dic.pop("name", "default")
-		self.visgroupid = dic.pop("visgroupid", self.ids())[0] #visgroupid is mapped to a list in the dic. visgroupid and groupid are the only attributes in any dic where this is the case
+		if "visgroupid" in dic:
+			self.visgroupid = dic["visgroupid"][0] #visgroupid is mapped to a list in the dic. visgroupid and groupid are the only attributes in any dic where this is the case
+		else:
+			self.visgroupid = self.ids()
 		self.color = dic.pop("color", "0 0 0")
 
 		self.other = dic
